@@ -9,9 +9,22 @@ function App() {
         <div className="App-heading">
           <p children className="heading">A$$ets</p>
         </div>
-        
-        <AssetSummary/>
 
+        <div className="DynamicContainer">
+          <AssetSummary/>
+        </div>
+        
+        <div className="StaticContainer">
+            <div className="HomeButton">
+                <div >Home</div>
+            </div>
+
+            <div className='AssetsButton'>
+                <div >Assets</div>
+            </div>
+        </div>
+
+        
       </header>
     </div>
   );

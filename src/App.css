@@ -10,7 +10,7 @@
 .App-header {
   aspect-ratio: 900/1600;
   height: 100vh;
-  background-color: #282c34;
+  background-color: black;
   
   font-size: calc(10px + 2vmin);
   color: white;
@@ -18,10 +18,9 @@
 
 .App-heading{
   display: flex;
-
   align-items: center;
-  background-color: bisque;
-  height: 5%;
+  background-color: black;
+  height: 6%;
   width: 100%;
   position: relative;
 }
@@ -29,11 +28,39 @@
 .heading{
   padding-left: 10%;
   font-size: 100%;
-  color: black;
+  color: whitesmoke;
   font-weight: bold;
   position: relative;
 }
 
-.MainContainer {
-  background-color: black;
+.DynamicContainer{
+  padding-top: 30%;
+  height: 61%;
+  background-color: #222831;
+}
+
+.StaticContainer{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 16%;
+  background-color: #222831;
+}
+
+.AssetsButton {
+  position: relative;
+  height: 97%;
+  width: 30%;
+  justify-content: center;
+  background-color: #45474B;
+  border: 3px solid #000;
+  border-left: 0px;
+}
+
+.HomeButton{
+  height: 97%;
+  width: 30%;
+  justify-content: center;
+  background-color: #45474B;
+  border: 3px solid #000;
 }
