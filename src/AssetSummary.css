@@ -1,0 +1,23 @@
+.Summary-Container{
+    margin-top: 30%;
+    position: relative;
+    height: 15%;
+    width: 100%;
+    background-color: aliceblue;
+}
+
+.AssetCountSummary{
+    background-color: aliceblue;
+}
+
+.CostSummary{
+    background-color: black;
+}
+
+.CurrentValueSummary{
+    background-color: aliceblue;
+}
+
+.content{
+    color: black;
+}

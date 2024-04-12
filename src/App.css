@@ -1,0 +1,39 @@
+.App {
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-header {
+  aspect-ratio: 900/1600;
+  height: 100vh;
+  background-color: #282c34;
+  
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-heading{
+  display: flex;
+
+  align-items: center;
+  background-color: bisque;
+  height: 5%;
+  width: 100%;
+  position: relative;
+}
+
+.heading{
+  padding-left: 10%;
+  font-size: 100%;
+  color: black;
+  font-weight: bold;
+  position: relative;
+}
+
+.MainContainer {
+  background-color: black;
+}
