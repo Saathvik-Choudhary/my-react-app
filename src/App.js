@@ -1,5 +1,8 @@
 import './App.css';
 import AssetSummary from './AssetSummary'
+import AssetList from "./AssetList"
+import CreateNewAsset from "./CreateNewAsset"
+import SaveAsset from './SaveAsset';
 
 function App() {
   return (
@@ -11,17 +14,20 @@ function App() {
         </div>
 
         <div className="DynamicContainer">
-          <AssetSummary/>
+          {/*<AssetSummary/>*/}
+          {/*<AssetList/>*/}
+          {/*<CreateNewAsset/>*/}
+          <SaveAsset/>
         </div>
         
         <div className="StaticContainer">
-            <div className="HomeButton">
-                <div >Home</div>
-            </div>
+            <button className="HomeButton">
+                <div className="contents">Home</div>
+            </button>
 
-            <div className='AssetsButton'>
-                <div >Assets</div>
-            </div>
+            <button className='AssetsButton'>
+                <div className="contents">Assets</div>
+            </button>
         </div>
 
         

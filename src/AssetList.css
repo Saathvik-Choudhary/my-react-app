@@ -1,0 +1,35 @@
+.assetContainer{
+    position: relative;
+    height: 20%;
+    width: 99%;
+    margin-left: 0.15%;
+    background-color: black;
+    display: flex;
+    border: 2px solid;
+    border-color: black;
+    display:  flex;
+    flex-direction: column;
+    
+}
+
+.assetTitle{
+    align-self: flex-start;
+    position: relative;
+    padding-top: 2%;
+    font-weight: bolder;
+    font-size: 90%;
+    color: whitesmoke;
+}
+
+.assetDetails{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.assetAge{
+    position: relative;
+}

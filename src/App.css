@@ -34,17 +34,19 @@
 }
 
 .DynamicContainer{
-  padding-top: 30%;
-  height: 61%;
-  background-color: #222831;
+  padding-top: 2%;
+  height: 77%;
+  background-color: white;
 }
 
 .StaticContainer{
+  align-self: flex-end;
   position: relative;
   display: flex;
   justify-content: center;
   height: 16%;
   background-color: #222831;
+  
 }
 
 .AssetsButton {
@@ -63,4 +65,11 @@
   justify-content: center;
   background-color: #45474B;
   border: 3px solid #000;
+}
+
+.contents{
+  position: relative;
+  font-weight: bolder;
+  font-size: 150%;
+  color: white;
 }

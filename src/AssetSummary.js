@@ -15,7 +15,6 @@ function AssetSummary(){
                 <div className="content">Current Value</div>
             </div>
 
-            
         </div>
     )
 }
