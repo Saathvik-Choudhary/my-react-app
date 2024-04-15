@@ -1,12 +1,14 @@
 import "./SaveAsset.css"
 
 import React, { useState } from 'react';
-
+import axios from "axios";
 
 function SaveAsset(){
     const [formData, setFormData] = useState({
-        username: '', // Initial state for the username field
-        password: '', // Initial state for the password field
+        TitleInput:'',
+        CostInput:'',
+        DateInput:'',
+        DepreceationRate:'', // Initial state for the username field
       });
     
       // Handler function to update form data when input fields change
@@ -17,32 +19,67 @@ function SaveAsset(){
     
       // Handler function to handle form submission
       const handleSubmit = (event) => {
-        event.preventDefault(); // Prevent default form submission behavior
-        // Do something with the form data, e.g., send it to a server
-        console.log(formData);
+        console.log(formData);         
+         
+                axios({
+                    // Endpoint to send files
+                    url: "http://localhost:8080/assets/save",
+                    method: "POST",
+         
+                    // Attaching the form data
+                    data: formData,
+                })
+                    // Handle the response from backend here
+                    .then((res) => {})
+         
+                    // Catch errors if any
+                    .catch((err) => {});
+            
+
+        setFormData(setFormData);
       };
     
       return (
-        <form onSubmit={handleSubmit}>
+        
+        <form className="SaveContainer" onSubmit={handleSubmit}>
+
+            <button className="SaveButton" type="submit">Save</button>
+
           <input
             type="text"
-            className="TitleInput"
+            className="Input"
             id="TitleInput"
             name="TitleInput"
-            value={"Title (e.g., LG 34' OLED Monitor"}
             onChange={handleChange}
           />
     
-          <label htmlFor="password">Password:</label>
+
           <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
+            className="Input"
+            type="text"
+            id="CostInput"
+            name="CostInput"
             onChange={handleChange}
           />
-    
-          <button type="submit">Submit</button>
+
+
+            <input
+            className="Input"
+            type="date"
+            id="DateInput"
+            name="DateInput"
+            onChange={handleChange}
+          />
+
+
+                <input
+                className="Input"
+                type="text"
+                id="DepreceationRate"
+                name="DepreceationRate"
+                onChange={handleChange}
+          />
+
         </form>
       );
       {/*
