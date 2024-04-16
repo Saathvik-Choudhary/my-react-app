@@ -27,24 +27,30 @@ const getData = () =>{
         
         <div className="Summary-Container">
             <div className="AssetCountSummary">
+            <div className="containere">
                 <div className="content">Asset Count</div>
-                <div className="content">
+
+                <div className="contentValue">
                     {assetSummary?.count}
-                </div>
+                </div></div>
             </div>
 
             <div className="CostSummary">
+            <div className="containere">
                 <div className="content">Cost</div>
-                <div className="content">
+                
+                <div className="contentValue">
                     {assetSummary?.cost}
-                </div>
+                </div></div>
             </div>
 
             <div className="CurrentValueSummary">
+            <div className="containere">
                 <div className="content">Current Value</div>
-                <div className="content">
+
+                <div className="contentValue">
                     {assetSummary?.value}
-                </div>
+                </div></div>
             </div>
 
         </div>
