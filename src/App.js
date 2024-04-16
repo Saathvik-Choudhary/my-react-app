@@ -14,9 +14,10 @@ function App() {
         </div>
 
         <div className="DynamicContainer">
-          {/*<AssetSummary/>*/}
-          {/*<AssetList/>*/}
-          {/*<CreateNewAsset/>*/}
+          {//<AssetSummary/>
+          /*<AssetList/>*/
+          //<CreateNewAsset/>
+}
           <SaveAsset/>
         </div>
         
