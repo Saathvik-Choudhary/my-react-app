@@ -5,7 +5,7 @@ import "./SaveAsset.css";
 function SaveAsset() {
   const [formData, setFormData] = useState({
     cost: null,
-    date: null,
+    purchaseDate: null,
     depreciationRate: null,
     title: null
   });
@@ -36,7 +36,7 @@ function SaveAsset() {
     setFormData({
       title: null,
       cost: null,
-      date: null,
+      purchaseDate: null,
       depreciationRate: null,
     });
   };
@@ -64,10 +64,10 @@ function SaveAsset() {
       />
       <input
         className="Input"
-        type="date"
-        id="date"
-        name="date"
-        value={formData.date || ""}
+        type="Date"
+        id="purchaseDate"
+        name="purchaseDate"
+        value={formData.purchaseDate || ""}
         onChange={handleChange}
       />
       <input
