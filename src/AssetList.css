@@ -1,6 +1,6 @@
 .assetContainer{
     position: relative;
-    height: 20%;
+    height: 14vh;
     width: 99%;
     margin-left: 0.15%;
     background-color: black;
@@ -15,13 +15,18 @@
 .assetTitle{
     align-self: flex-start;
     position: relative;
-    padding-top: 2%;
+    margin-top: 1vh;
+    padding-left: 1vh;
     font-weight: bolder;
-    font-size: 90%;
+    font-size: 3.5vh;
     color: whitesmoke;
+    text-align: left;
+    height: 7vh;
+    width: 100%;
 }
 
 .assetDetails{
+    height: 7vh;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -30,6 +35,7 @@
     padding-right: 5%;
 }
 
-.assetAge{
+.details{
     position: relative;
+    font-size: 3vh;
 }

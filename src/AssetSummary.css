@@ -9,27 +9,28 @@
     border: 2px solid;
     border-color: black;
     align-items: center;
+    overflow: hidden;
 }
 
 .AssetCountSummary{
     position: relative;
     height: 97%;
     width: 32%;
-    background-color: #EEEEEE;
+    background-color: whitesmoke;
 }
 
 .CostSummary{
     position: relative;
     height: 97%;
     width: 32%;
-    background-color: #45474B;
+    background-color: lightgray;
 }
 
 .CurrentValueSummary{
     position: relative;
     height: 97%;
     width: 36%;
-    background-color: aliceblue;
+    background-color: whitesmoke;
 }
 
 .content{
@@ -37,7 +38,7 @@
     padding-top: 8%;
     margin-left: 8%;
     font-weight: bolder;
-    font-size: 90%;
+    font-size: 2.5vh;
     color: black;
 }
 
@@ -45,7 +46,7 @@
     position: relative;
     padding-left: 10%;
     padding-top: 12%;
-    font-size: 80%;
+    font-size: 2vh;
     color: black;
 
 }

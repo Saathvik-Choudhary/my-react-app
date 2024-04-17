@@ -19,7 +19,7 @@
 .App-heading{
   display: flex;
   align-items: center;
-  background-color: black;
+  background-color: #222831;
   height: 6%;
   width: 100%;
   position: relative;
@@ -27,7 +27,7 @@
 
 .heading{
   padding-left: 10%;
-  font-size: 100%;
+  font-size: 4vh;
   color: whitesmoke;
   font-weight: bold;
   position: relative;
@@ -37,6 +37,7 @@
   padding-top: 2%;
   height: 77%;
   background-color: white;
+  border-width: 0px;
 }
 
 .StaticContainer{
@@ -45,13 +46,13 @@
   display: flex;
   justify-content: center;
   height: 16%;
-  background-color: #222831;
-  
+  background-color: white;
+  border-width: 0px;
 }
 
 .AssetsButton {
   position: relative;
-  height: 97%;
+  height: 100%;
   width: 30%;
   justify-content: center;
   background-color: #45474B;
@@ -60,7 +61,7 @@
 }
 
 .HomeButton{
-  height: 97%;
+  height: 100%;
   width: 30%;
   justify-content: center;
   background-color: #45474B;
@@ -70,20 +71,23 @@
 .contents{
   position: relative;
   font-weight: bolder;
-  font-size: 150%;
+  font-size: 4vh;
   color: white;
 }
 
 .newAsset{
   position: relative;
-  background-color: aqua;
-  height: 18%;
+  background-color: white;
+  height: 12%;
   width: 100%;
   text-align: left;
-
+  border-width: 0;
 }
 
 .ButtonName{
   padding-left: 2%;
-  font-size:xx-large;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  font-size: 3.8vh;
+  font-weight: bolder;
 }

@@ -31,7 +31,7 @@ const getData = () =>{
                 <div className="content">Asset Count</div>
 
                 <div className="contentValue">
-                    {assetSummary?.count}
+                    {assetSummary?.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </div></div>
             </div>
 
@@ -40,7 +40,7 @@ const getData = () =>{
                 <div className="content">Cost</div>
                 
                 <div className="contentValue">
-                    {assetSummary?.cost}
+                    {assetSummary?.cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </div></div>
             </div>
 
@@ -49,7 +49,7 @@ const getData = () =>{
                 <div className="content">Current Value</div>
 
                 <div className="contentValue">
-                    {assetSummary?.value}
+                    {assetSummary?.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </div></div>
             </div>
 

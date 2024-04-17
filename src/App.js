@@ -2,22 +2,49 @@ import './App.css';
 import AssetSummary from './AssetSummary'; // Assuming correct import path
 import AssetList from './AssetList'; // Assuming correct import path
 import SaveAsset from './SaveAsset'; // Assuming correct import path
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { title } from 'process';
 
 function App() {
   const [activeSection, setActiveSection] = useState('Home'); // Initial active section
 
+  const handleSaveClick = () => {
+    setActiveSection('Save');
+  };
+
+  const [isButtonClicked, setIsButtonClicked] = useState(false); // Button state
+
+  const buttonStyle1 = isButtonClicked ? { backgroundColor: '#45474B' } : {backgroundColor:'#000'};
+
+  const buttonStyle2 = isButtonClicked ? { backgroundColor: '#000' } : {backgroundColor: '#45474B'};
+
+
   const handleHomeClick = () => {
     setActiveSection('Home');
+    setIsButtonClicked(!isButtonClicked); // Toggle state on click
   };
 
   const handleAssetClick = () => {
     setActiveSection('Assets');
+    setIsButtonClicked(!isButtonClicked); // Toggle state on click
   };
 
-  const handleSaveClick = () => {
-    setActiveSection('Save');
-  };
+  const [list, setAssetList] = useState([]);
+
+  useEffect(() => {
+        getAssetList();
+  }, []);
+
+const getAssetList = () =>{
+    fetch('http://localhost:8080/assets/all')
+    .then((res) => {
+        return res.json();
+    })
+    .then((list) => {
+         console.log(list);
+         setAssetList(list);
+       })
+    }
 
   return (
     <div className="App">
@@ -33,22 +60,26 @@ function App() {
               <button className="newAsset" onClick={handleSaveClick}>
                 <div className="ButtonName">New</div>
               </button>
-              <AssetList />
+              {list.forEach((item) => (
+              <AssetList ({title = item.title, purchaseDate = item.purchaseDate, cost = item.cost, depreciationRate = item.depreciationRate}) />
+             ))}
+              <AssetList/>
             </>
           )}
           {activeSection === 'Save' && <SaveAsset />}
         </div>
-
+        
         <div className="StaticContainer">
-          <button className="HomeButton" onClick={handleHomeClick}>
+          <button style={buttonStyle1} className="HomeButton" onClick={handleHomeClick}>
             <div className="contents">Home</div>
           </button>
 
-          <button className="AssetsButton" onClick={handleAssetClick}>
+          <button style={buttonStyle2} className="AssetsButton" onClick={handleAssetClick}>
             <div className="contents">Assets</div>
           </button>
         </div>
       </header>
+
     </div>
   );
 }
