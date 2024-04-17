@@ -1,19 +1,19 @@
-import "./AssetList.css"
+import "./AssetList.css"; // Assuming correct import path for styles
 
-function AssetList(){
-    return(
-        <div className="assetContainer">
-            <div className="assetTitle">Asset Title</div>
-            <br/>
-            <div className="assetDetails">
-                <div className="assetAge">4y 5m</div>
-                <div className="assetAge">23%</div>
-                <div className="assetAge">245243</div>
-                <div className="assetAge">234234</div>
-            </div>
+function AssetList({ title = "", purchaseDate = "", cost = 0, depreciationRate = 0 }) {
+  return (
+    <div className="assetListContainer">
+      <div className="assetContainer">
+        <div className="assetTitle">{title}</div>
+        <div className="assetDetails">
+          <div className="details">{purchaseDate}</div>
+          <div className="details">{cost}</div>
+          <div className="details">{depreciationRate}</div>
+          <div className="details">details4</div>
         </div>
-        
-    )
+      </div>
+    </div>
+  );
 }
 
 export default AssetList;
