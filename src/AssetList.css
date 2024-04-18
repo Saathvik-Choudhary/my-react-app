@@ -1,15 +1,23 @@
-.assetContainer{
+.evenRow{
     position: relative;
-    height: 14vh;
-    width: 99%;
-    margin-left: 0.15%;
-    background-color: black;
+    height: 12vh;
+    width: 100%;
+
+    background-color: lightgray;
     display: flex;
-    border: 2px solid;
-    border-color: black;
     display:  flex;
     flex-direction: column;
-    
+}
+
+.oddRow{
+    position: relative;
+    height: 12vh;
+    width: 100%;
+
+    background-color: white;
+    display: flex;
+    display:  flex;
+    flex-direction: column;
 }
 
 .assetTitle{
@@ -18,8 +26,8 @@
     margin-top: 1vh;
     padding-left: 1vh;
     font-weight: bolder;
-    font-size: 3.5vh;
-    color: whitesmoke;
+    font-size: 3vh;
+    color: black;
     text-align: left;
     height: 7vh;
     width: 100%;
@@ -38,4 +46,5 @@
 .details{
     position: relative;
     font-size: 3vh;
+    color: black;
 }

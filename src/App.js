@@ -63,7 +63,13 @@ const getAssetList = () =>{
                 /*  This maps each array item to a div adds
                 the style declared above and return it */
                 list.map((item,index) => (
-                  <AssetList key={index} title={item.title} purchaseDate = {item.purchaseDate} cost ={item.cost} depreciationRate = {item.depreciationRate} />
+                  <AssetList key={index} 
+                        title={item.title} 
+                        purchaseDate = {item.purchaseDate} 
+                        cost ={item.cost} 
+                        depreciationRate = {item.depreciationRate} 
+                        depreciatedValue={item.depreciatedValue}
+                        i={index}/>
                 ))
             }
               
