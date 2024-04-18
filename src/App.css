@@ -38,6 +38,7 @@
   height: 77%;
   background-color: white;
   border-width: 0px;
+  overflow: auto;
 }
 
 .StaticContainer{

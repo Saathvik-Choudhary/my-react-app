@@ -3,7 +3,6 @@ import AssetSummary from './AssetSummary'; // Assuming correct import path
 import AssetList from './AssetList'; // Assuming correct import path
 import SaveAsset from './SaveAsset'; // Assuming correct import path
 import React, { useState,useEffect } from 'react';
-import { title } from 'process';
 
 function App() {
   const [activeSection, setActiveSection] = useState('Home'); // Initial active section
@@ -40,9 +39,9 @@ const getAssetList = () =>{
     .then((res) => {
         return res.json();
     })
-    .then((list) => {
-         console.log(list);
-         setAssetList(list);
+    .then((response) => {
+         console.log(response);
+         setAssetList(response.record);
        })
     }
 
@@ -60,10 +59,14 @@ const getAssetList = () =>{
               <button className="newAsset" onClick={handleSaveClick}>
                 <div className="ButtonName">New</div>
               </button>
-              {list.forEach((item) => (
-              <AssetList ({title = item.title, purchaseDate = item.purchaseDate, cost = item.cost, depreciationRate = item.depreciationRate}) />
-             ))}
-              <AssetList/>
+              {
+                /*  This maps each array item to a div adds
+                the style declared above and return it */
+                list.map((item,index) => (
+                  <AssetList key={index} title={item.title} purchaseDate = {item.purchaseDate} cost ={item.cost} depreciationRate = {item.depreciationRate} />
+                ))
+            }
+              
             </>
           )}
           {activeSection === 'Save' && <SaveAsset />}
