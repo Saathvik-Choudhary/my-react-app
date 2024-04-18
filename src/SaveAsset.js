@@ -9,30 +9,57 @@ function SaveAsset() {
     depreciationRate: null,
     title: null
   });
+  const [errors, setErrors] = useState({});
 
   // Handler function to update form data when input fields change
   const handleChange = async (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
+    // Clear previous error for the field when user starts typing again
+    setErrors({ ...errors, [name]: "" });
+  };
+
+  // Validation function to check if the given value is not empty
+  const validateNotEmpty = (value) => {
+    if (!value || value.trim() === "") {
+      return "This field is required";
+    }
+    return "";
   };
 
   // Handler function to handle form submission
   const handleSubmit = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
+    const newErrors = {};
+
+    // Validate each field
+    Object.entries(formData).forEach(([key, value]) => {
+      const errorMessage = validateNotEmpty(value);
+      if (errorMessage) {
+        newErrors[key] = errorMessage;
+      }
+    });
+
+    // If there are errors, do not proceed with submission
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     try {
-      const response = await fetch("http://localhost:8080/assets/save",{
+      const response = await fetch("http://localhost:8080/assets/save", {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      console.log(response.data); 
+      console.log(response.data);
     } catch (error) {
       console.error('Error sending data:', error);
     }
-    
-    // Reset form data after submission
+
+    // Reset form data after successful submission
     setFormData({
       title: null,
       cost: null,
@@ -53,6 +80,7 @@ function SaveAsset() {
         value={formData.title || ""}
         onChange={handleChange}
       />
+      {errors.title && <p className="Error">{errors.title}</p>}
       <input
         className="Input"
         type="text"
@@ -62,6 +90,7 @@ function SaveAsset() {
         value={formData.cost || ""}
         onChange={handleChange}
       />
+      {errors.cost && <p className="Error">{errors.cost}</p>}
       <input
         className="Input"
         type="Date"
@@ -70,6 +99,7 @@ function SaveAsset() {
         value={formData.purchaseDate || ""}
         onChange={handleChange}
       />
+      {errors.purchaseDate && <p className="Error">{errors.purchaseDate}</p>}
       <input
         className="Input"
         type="text"
@@ -79,6 +109,7 @@ function SaveAsset() {
         value={formData.depreciationRate || ""}
         onChange={handleChange}
       />
+      {errors.depreciationRate && <p className="Error">{errors.depreciationRate}</p>}
     </form>
   );
 }

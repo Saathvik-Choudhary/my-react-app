@@ -92,3 +92,11 @@
   font-size: 3.8vh;
   font-weight: bolder;
 }
+
+.evenRow{
+  background-color: #000;
+}
+
+.oddRow{
+  background-color: antiquewhite;
+}

@@ -27,10 +27,18 @@
 
 
 .Input{
-    margin-bottom: 3%;
+    margin-top: 3%;
     position: relative;
     height: 7%;
     width: 90%;
     font-size: 90%;
     border-width: 3px;
 }
+
+.Error {
+    position: relative;
+    align-self: left;
+    color: black; /* Change the color to black */
+    font-size: 3vh; /* Adjust font size if needed */
+    margin-top: 0%; /* Add some spacing from the input fields */
+  }
