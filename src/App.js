@@ -26,6 +26,7 @@ function App() {
   const handleAssetClick = () => {
     setActiveSection('Assets');
     setIsButtonClicked(!isButtonClicked); // Toggle state on click
+    getAssetList();
   };
 
   const [list, setAssetList] = useState([]);

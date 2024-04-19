@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
-
 import "./SaveAsset.css";
 
 function SaveAsset() {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     cost: null,
     purchaseDate: null,
     depreciationRate: null,
     title: null
-  });
+  };
+  
+  const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
 
-  // Handler function to update form data when input fields change
-  const handleChange = async (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-    // Clear previous error for the field when user starts typing again
     setErrors({ ...errors, [name]: "" });
   };
 
-  // Validation function to check if the given value is not empty
   const validateNotEmpty = (value) => {
     if (!value || value.trim() === "") {
       return "This field is required";
@@ -27,12 +25,10 @@ function SaveAsset() {
     return "";
   };
 
-  // Handler function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const newErrors = {};
 
-    // Validate each field
     Object.entries(formData).forEach(([key, value]) => {
       const errorMessage = validateNotEmpty(value);
       if (errorMessage) {
@@ -40,7 +36,6 @@ function SaveAsset() {
       }
     });
 
-    // If there are errors, do not proceed with submission
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
@@ -59,59 +54,58 @@ function SaveAsset() {
       console.error('Error sending data:', error);
     }
 
-    // Reset form data after successful submission
-    setFormData({
-      title: null,
-      cost: null,
-      purchaseDate: null,
-      depreciationRate: null,
-    });
+    setFormData(initialFormData);
   };
 
   return (
     <form className="SaveContainer" onSubmit={handleSubmit}>
       <button className="SaveButton" type="submit">Save</button>
-      <input
-        type="text"
-        className="Input"
-        id="title"
+      <InputField 
         name="title"
         placeholder="Title"
         value={formData.title || ""}
         onChange={handleChange}
+        error={errors.title}
       />
-      {errors.title && <p className="Error">{errors.title}</p>}
-      <input
-        className="Input"
-        type="text"
-        id="cost"
+      <InputField 
         name="cost"
         placeholder="Cost"
         value={formData.cost || ""}
         onChange={handleChange}
+        error={errors.cost}
       />
-      {errors.cost && <p className="Error">{errors.cost}</p>}
-      <input
-        className="Input"
-        type="Date"
-        id="purchaseDate"
+      <InputField 
         name="purchaseDate"
+        placeholder="Purchase Date"
+        type="date"
         value={formData.purchaseDate || ""}
         onChange={handleChange}
+        error={errors.purchaseDate}
       />
-      {errors.purchaseDate && <p className="Error">{errors.purchaseDate}</p>}
-      <input
-        className="Input"
-        type="text"
-        id="depreciationRate"
+      <InputField 
         name="depreciationRate"
         placeholder="Depreciation Rate"
         value={formData.depreciationRate || ""}
         onChange={handleChange}
+        error={errors.depreciationRate}
       />
-      {errors.depreciationRate && <p className="Error">{errors.depreciationRate}</p>}
     </form>
   );
 }
+
+const InputField = ({ name, placeholder, type = "text", value, onChange, error }) => (
+  <div>
+    <input
+      type={type}
+      className="Input"
+      id={name}
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+    />
+    {error && <p className="Error">{error}</p>}
+  </div>
+);
 
 export default SaveAsset;
