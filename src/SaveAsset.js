@@ -29,6 +29,11 @@ function SaveAsset() {
     return "";
   };
 
+  // Handler function for the <Select> component's onChange event
+  const handleCurrencyChange = (selectedOption) => {
+    setFormData({ ...formData, currency: selectedOption.value });
+  };
+
   // Handler function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
