@@ -48,7 +48,8 @@
     padding-top: 12%;
     font-size: 2vh;
     color: black;
-
+    padding-right: 8%;
+    float: right;
 }
 
 .containere{

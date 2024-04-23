@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-
+import Select from 'react-select';
 import "./SaveAsset.css";
 
 function SaveAsset() {
+  
   const [formData, setFormData] = useState({
     cost: null,
     purchaseDate: null,
     depreciationRate: null,
-    title: null
+    title: null,
+    currency: null,
   });
   const [errors, setErrors] = useState({});
 
@@ -65,8 +67,22 @@ function SaveAsset() {
       cost: null,
       purchaseDate: null,
       depreciationRate: null,
+      currency: null
     });
   };
+
+  const currencyData = [
+    "AED", "AUD", "BRL", "CAD", "CHF", "CNY", 
+    "CZK","DKK", "EUR", "GBP", "HKD", "HUF", 
+    "IDR","INR", "JPY", "KRW", "MXN", "MYR", 
+    "NOK", "NZD", "PHP", "PLN", "RUB", "SAR", 
+    "SEK", "SGD", "THB", "TRY", "USD", "ZAR"
+  ];
+  
+  const options = currencyData.map(currency => ({
+    label: currency,
+    value: currency
+  }));
 
   return (
     <form className="SaveContainer" onSubmit={handleSubmit}>
@@ -80,16 +96,26 @@ function SaveAsset() {
         value={formData.title || ""}
         onChange={handleChange}
       />
-      {errors.title && <p className="Error">{errors.title}</p>}
-      <input
-        className="Input"
-        type="text"
-        id="cost"
-        name="cost"
-        placeholder="Cost"
-        value={formData.cost || ""}
-        onChange={handleChange}
-      />
+      <div className="InputCost">
+        {errors.title && <p className="Error">{errors.title}</p>}
+        <input
+          className="Cost"        
+          type="text"
+          id="cost"
+          name="cost"
+          placeholder="Cost"
+          value={formData.cost || ""}
+          onChange={handleChange}
+        />
+        <Select
+          className='DropDown'
+          options={options}
+          onChange={handleCurrencyChange}
+          isSearchable={true}
+          placeholder="Select a currency"
+        />
+      </div>
+
       {errors.cost && <p className="Error">{errors.cost}</p>}
       <input
         className="Input"
@@ -99,6 +125,7 @@ function SaveAsset() {
         value={formData.purchaseDate || ""}
         onChange={handleChange}
       />
+
       {errors.purchaseDate && <p className="Error">{errors.purchaseDate}</p>}
       <input
         className="Input"

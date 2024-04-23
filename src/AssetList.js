@@ -24,8 +24,9 @@ function AssetList({ title = "", purchaseDate = "", cost = 0, depreciationRate =
         <div className="assetDetails">
           <div className="details">{formatYearsMonths(purchaseDate)}</div>
           <div className="details">{depreciationRate}%</div>
-          <div className="details">{cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
-          <div className="details">{depreciatedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+          <div className="details"><span style={{ fontSize: '2vh' }}>USD:</span> {cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+          <div className="details"><span style={{ fontSize: '2vh' }}>USD:</span>  {depreciatedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+
         </div>
       </div>
     </div>
