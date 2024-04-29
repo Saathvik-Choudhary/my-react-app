@@ -36,13 +36,13 @@ function App() {
   }, []);
 
 const getAssetList = () =>{
-    fetch('http://localhost:8080/assets/all')
+    fetch('http://localhost:8080/asset/all')
     .then((res) => {
         return res.json();
     })
     .then((response) => {
          console.log(response);
-         setAssetList(response.record);
+         setAssetList(response.content);
        })
     }
 
@@ -69,7 +69,7 @@ const getAssetList = () =>{
                         purchaseDate = {item.purchaseDate} 
                         cost ={item.cost} 
                         depreciationRate = {item.depreciationRate} 
-                        depreciatedValue={item.depreciatedValue}
+                        currentValue={item.currentValue}
                         i={index}/>
                 ))
             }

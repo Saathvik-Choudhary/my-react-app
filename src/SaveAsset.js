@@ -3,7 +3,6 @@ import Select from 'react-select';
 import "./SaveAsset.css";
 
 function SaveAsset() {
-  
   const [formData, setFormData] = useState({
     cost: null,
     purchaseDate: null,
@@ -13,15 +12,12 @@ function SaveAsset() {
   });
   const [errors, setErrors] = useState({});
 
-  // Handler function to update form data when input fields change
   const handleChange = async (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-    // Clear previous error for the field when user starts typing again
     setErrors({ ...errors, [name]: "" });
   };
 
-  // Validation function to check if the given value is not empty
   const validateNotEmpty = (value) => {
     if (!value || value.trim() === "") {
       return "This field is required";
@@ -29,17 +25,14 @@ function SaveAsset() {
     return "";
   };
 
-  // Handler function for the <Select> component's onChange event
   const handleCurrencyChange = (selectedOption) => {
     setFormData({ ...formData, currency: selectedOption.value });
   };
 
-  // Handler function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const newErrors = {};
 
-    // Validate each field
     Object.entries(formData).forEach(([key, value]) => {
       const errorMessage = validateNotEmpty(value);
       if (errorMessage) {
@@ -47,14 +40,13 @@ function SaveAsset() {
       }
     });
 
-    // If there are errors, do not proceed with submission
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
 
     try {
-      const response = await fetch("http://localhost:8080/assets/save", {
+      const response = await fetch("http://localhost:8080/asset/save", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,7 +58,6 @@ function SaveAsset() {
       console.error('Error sending data:', error);
     }
 
-    // Reset form data after successful submission
     setFormData({
       title: null,
       cost: null,
@@ -77,9 +68,9 @@ function SaveAsset() {
   };
 
   const currencyData = [
-    "AED", "AUD", "BRL", "CAD", "CHF", "CNY", 
-    "CZK","DKK", "EUR", "GBP", "HKD", "HUF", 
-    "IDR","INR", "JPY", "KRW", "MXN", "MYR", 
+    "AED", "AUD", "BRL", "CAD", "CHF", "CNY",
+    "CZK", "DKK", "EUR", "GBP", "HKD", "HUF", 
+    "IDR", "INR", "JPY", "KRW", "MXN", "MYR", 
     "NOK", "NZD", "PHP", "PLN", "RUB", "SAR", 
     "SEK", "SGD", "THB", "TRY", "USD", "ZAR"
   ];

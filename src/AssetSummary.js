@@ -13,7 +13,7 @@ function AssetSummary(){
   }, []);
 
 const getData = () =>{
-    fetch('http://localhost:8080/assets/assetSummary')
+    fetch('http://localhost:8080/asset/summary')
     .then((res) => {
         return res.json();
     })
@@ -31,7 +31,7 @@ const getData = () =>{
                 <div className="content">Asset Count</div>
 
                 <div className="contentValue">
-                    USD: {assetSummary?.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                    {assetSummary?.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </div></div>
             </div>
 

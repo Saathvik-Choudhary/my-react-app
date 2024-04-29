@@ -1,6 +1,6 @@
 import "./AssetList.css"; // Assuming correct import path for styles
 
-function AssetList({ title = "", purchaseDate = "", cost = 0, depreciationRate = 0 ,depreciatedValue=0 , i=0}) {
+function AssetList({ title = "", purchaseDate = "", cost = 0, depreciationRate = 0 ,currentValue=0 , i=0}) {
     
     function formatYearsMonths(purchaseDate) {
         const currentDate = new Date();
@@ -23,9 +23,9 @@ function AssetList({ title = "", purchaseDate = "", cost = 0, depreciationRate =
         <div className="assetTitle">{title}</div>
         <div className="assetDetails">
           <div className="details">{formatYearsMonths(purchaseDate)}</div>
-          <div className="details">{depreciationRate}%</div>
+          <div className="details">{depreciationRate*100}%</div>
           <div className="details"><span style={{ fontSize: '2vh' }}>USD:</span> {cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
-          <div className="details"><span style={{ fontSize: '2vh' }}>USD:</span>  {depreciatedValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+          <div className="details"><span style={{ fontSize: '2vh' }}>USD:</span>  {currentValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
 
         </div>
       </div>
